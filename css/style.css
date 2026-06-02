@@ -231,7 +231,7 @@ ul { list-style: none; }
   background-size: cover;
   background-position: center -12px;
   background-repeat: no-repeat;
-  filter: saturate(1.22) contrast(1.08) brightness(1.04);
+  filter: saturate(1.5) contrast(0.95) brightness(1.25);
 }
 .mobile-hero-bg-img::after {
   content: "";
@@ -349,12 +349,13 @@ ul { list-style: none; }
 }
 .mobile-service-info { flex: 1; min-width: 0; display: flex; flex-direction: column; justify-content: center; }
 .mobile-service-title {
-  font-size: 9px;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  color: var(--dark);
+  font-size: 10px;
+  font-weight:500;
+  letter-spacing: 0.04em;
+  color:#2A2A2A;          /*var(--dark);*/
   margin-bottom: 2px;
   transform: translateY(-6px);
+  font-family:'Times New Roman', Times, serif;
 }
 .mobile-service-divider {
   width: 24px; height: 1px;
@@ -362,8 +363,8 @@ ul { list-style: none; }
   margin-bottom: 4px;
 }
 .mobile-service-desc {
-  font-size: 8px;
-  color: rgba(28,28,28,.6);
+  font-size: 9px;
+  color: rgb(41, 41, 41);/*rgba(28,28,28,.6);*/
   line-height: 1.3;
   transform: translateY(6px);
 }
