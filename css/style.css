@@ -237,7 +237,7 @@ ul { list-style: none; }
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,.28);
+  background: rgba(0,0,0,.22);
 }
 .mobile-hero-fade {
   position: absolute;
@@ -982,27 +982,83 @@ ul { list-style: none; }
 }
 
 @media (max-width: 360px) {
+  .mobile-hero {
+    height: auto;
+    min-height: 100dvh;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  .mobile-hero-spacer {
+    height: 56px;
+  }
+  .mobile-hero-text {
+    padding: 0 12px 8px;
+  }
+  .mobile-hero-text h1 {
+    font-size: clamp(1.25rem, 6.4vw, 1.9rem);
+  }
+  .mobile-hero-text .gold-sub {
+    font-size: clamp(0.75rem, 3.1vw, 0.95rem);
+    margin: 4px 0 6px;
+  }
+  .mobile-hero-text .desc {
+    font-size: 0.62rem;
+    line-height: 1.35;
+    margin-bottom: 8px;
+    max-width: 220px;
+  }
+  .mobile-hero-text .btn {
+    padding: 7px 12px;
+  }
   .mobile-bottom {
     padding: 0 8px 10px;
-    gap: 6px;
+    gap: 4px;
   }
   .mobile-services-grid {
-    gap: 6px;
+    gap: 4px;
   }
   .mobile-service-card {
-    height: 88px;
-    padding: 8px;
-    gap: 8px;
+    height: 78px;
+    padding: 6px;
+    gap: 6px;
   }
   .mobile-service-card img {
-    width: 52px;
-    height: 52px;
+    width: 42px;
+    height: 42px;
   }
   .mobile-service-title {
     font-size: 8px;
   }
+  .mobile-service-divider {
+    margin-bottom: 2px;
+  }
   .mobile-service-desc {
-    font-size: 7px;
-    line-height: 1.25;
+    font-size: 6.5px;
+    line-height: 1.2;
+  }
+  .mobile-service-arrow {
+    width: 13px;
+    height: 13px;
+    right: 6px;
+    bottom: 6px;
+  }
+  .qualities-bar {
+    padding: 8px 6px;
+  }
+  .quality-item {
+    gap: 4px;
+    padding: 0 2px;
+  }
+  .quality-icon {
+    width: 22px;
+    height: 22px;
+  }
+  .quality-icon img {
+    width: 11px;
+    height: 11px;
+  }
+  .quality-label {
+    font-size: 6px;
+    max-width: 48px;
   }
 }
