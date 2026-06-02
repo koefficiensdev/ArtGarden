@@ -917,6 +917,16 @@ ul { list-style: none; }
   .logo-icon { display: block !important; }
   .header-inner { align-items: center; }
   .logo-wrap img.logo-text { height: 32px; }
+
+  /* Home mobile header must stay truly transparent. */
+  .site-header.transparent,
+  .site-header.transparent.scrolled,
+  .site-header.transparent.menu-open,
+  .site-header.transparent.menu-open.scrolled {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
 }
 
 /* Subpage logo: keep inside header */
@@ -968,5 +978,31 @@ ul { list-style: none; }
   .site-header.menu-open .logo-wrap img.logo-text {
     height: 22px !important;
     width: auto !important;
+  }
+}
+
+@media (max-width: 360px) {
+  .mobile-bottom {
+    padding: 0 8px 10px;
+    gap: 6px;
+  }
+  .mobile-services-grid {
+    gap: 6px;
+  }
+  .mobile-service-card {
+    height: 88px;
+    padding: 8px;
+    gap: 8px;
+  }
+  .mobile-service-card img {
+    width: 52px;
+    height: 52px;
+  }
+  .mobile-service-title {
+    font-size: 8px;
+  }
+  .mobile-service-desc {
+    font-size: 7px;
+    line-height: 1.25;
   }
 }

@@ -40,6 +40,14 @@ document.querySelectorAll('[data-icon]').forEach(el => {
     if (!header) return;
     const scrolled = window.scrollY > 20;
     const isMobile = window.innerWidth < 1024;
+
+    // Keep the home header fully transparent on mobile in all states.
+    if (isHome && isMobile) {
+      header.classList.remove('scrolled', 'bg-dark-80');
+      header.classList.add('transparent');
+      return;
+    }
+
     header.classList.remove('scrolled', 'transparent', 'bg-dark-80');
     if (mobileOpen) {
       header.classList.add('scrolled');
