@@ -39,10 +39,11 @@ document.querySelectorAll('[data-icon]').forEach(el => {
   function updateHeaderBg() {
     if (!header) return;
     const scrolled = window.scrollY > 20;
+    const isMobile = window.innerWidth < 1024;
     header.classList.remove('scrolled', 'transparent', 'bg-dark-80');
     if (mobileOpen) {
       header.classList.add('scrolled');
-    } else if (scrolled) {
+    } else if (scrolled && !(isHome && isMobile)) {
       header.classList.add('scrolled');
     } else if (isHome) {
       header.classList.add('transparent');
@@ -52,12 +53,14 @@ document.querySelectorAll('[data-icon]').forEach(el => {
   }
 
   window.addEventListener('scroll', updateHeaderBg);
+  window.addEventListener('resize', updateHeaderBg);
   updateHeaderBg();
 
   if (mobileBtn && mobileNav) {
     mobileBtn.addEventListener('click', () => {
       mobileOpen = !mobileOpen;
       mobileNav.classList.toggle('open', mobileOpen);
+      header.classList.toggle('menu-open', mobileOpen);
       if (mobileMenuIcon) mobileMenuIcon.innerHTML = mobileOpen ? ICONS.x : ICONS.menu;
       updateHeaderBg();
     });
