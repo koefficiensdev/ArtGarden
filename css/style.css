@@ -231,6 +231,13 @@ ul { list-style: none; }
   background-size: cover;
   background-position: center -12px;
   background-repeat: no-repeat;
+  filter: saturate(1.22) contrast(1.08) brightness(1.04);
+}
+.mobile-hero-bg-img::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,.28);
 }
 .mobile-hero-fade {
   position: absolute;
