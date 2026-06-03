@@ -935,6 +935,13 @@ ul { list-style: none; }
   .header-inner { align-items: center; }
   .logo-wrap img.logo-text { height: 32px; }
 
+  /* Keep bg-dark-80 desktop-only */
+  .site-header.bg-dark-80 {
+    background: transparent !important;
+    backdrop-filter: none !important;
+    box-shadow: none !important;
+  }
+
   /* Home mobile header must stay truly transparent. */
   .site-header.transparent,
   .site-header.transparent.scrolled {
