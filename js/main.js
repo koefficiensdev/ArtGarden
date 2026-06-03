@@ -53,8 +53,6 @@ document.querySelectorAll('[data-icon]').forEach(el => {
       header.classList.add('scrolled');
     } else if (scrolled && !(isHome && isMobile)) {
       header.classList.add('scrolled');
-    } else if (isHome) {
-      header.classList.add('transparent');
     } else {
       header.classList.add('bg-dark-80');
     }
@@ -101,11 +99,11 @@ document.querySelectorAll('[data-icon]').forEach(el => {
     entries.forEach(e => {
       if (e.isIntersecting) {
         const delay = e.target.getAttribute('data-delay') || '0';
-        setTimeout(() => e.target.classList.add('visible'), parseFloat(delay) * 1000);
+        setTimeout(() => e.target.classList.add('visible'), parseFloat(delay) * 550);
         obs.unobserve(e.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { threshold: 0.02, rootMargin: '0px 0px -6% 0px' });
   els.forEach(el => obs.observe(el));
 })();
 
@@ -192,3 +190,78 @@ document.querySelectorAll('[data-icon]').forEach(el => {
 /* ---- Footer: dynamic year ---- */
 const yearEl = document.querySelector('.footer-year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
+
+/* ---- Mobile UX enhancements (index only) ---- */
+(function initMobileUX() {
+  if (window.innerWidth >= 1024) return;
+
+  /* 1. Hero text staggered entrance */
+  const heroText = document.querySelector('.mobile-hero-text');
+  if (heroText) {
+    const items = heroText.querySelectorAll('h1, .gold-sub, .desc, .btn');
+    items.forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(22px)';
+      el.style.transition = 'opacity 0.5s ease, transform 0.5s cubic-bezier(0.22,1,0.36,1)';
+    });
+    let base = 180;
+    items.forEach((el, i) => {
+      setTimeout(() => {
+        el.style.opacity = '';
+        el.style.transform = '';
+      }, base + i * 110);
+    });
+  }
+
+  /* 2. Service card staggered bounce-in entrance */
+  const cards = document.querySelectorAll('.mobile-service-card');
+  cards.forEach((card, i) => {
+    card.style.opacity = '0';
+    card.style.transform = 'translateY(20px) scale(0.96)';
+    card.style.transition = 'opacity 0.38s ease, transform 0.38s cubic-bezier(0.34,1.56,0.64,1)';
+    setTimeout(() => {
+      card.style.opacity = '';
+      card.style.transform = '';
+    }, 480 + i * 90);
+  });
+
+  /* 3. Gold ripple on card tap */
+  cards.forEach(card => {
+    card.addEventListener('pointerdown', function(e) {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const ripple = document.createElement('span');
+      ripple.style.cssText = [
+        'position:absolute',
+        'left:' + x + 'px',
+        'top:' + y + 'px',
+        'width:6px',
+        'height:6px',
+        'border-radius:50%',
+        'background:rgba(197,165,114,.45)',
+        'transform:translate(-50%,-50%) scale(0)',
+        'pointer-events:none',
+        'z-index:10',
+        'animation:mobileRipple 0.55s cubic-bezier(0,0.4,0.6,1) forwards'
+      ].join(';');
+      card.appendChild(ripple);
+      ripple.addEventListener('animationend', () => ripple.remove());
+    });
+  });
+
+  /* 4. Parallax on hero background while scrolling */
+  const bgImg = document.querySelector('.mobile-hero-bg-img');
+  if (bgImg) {
+    window.addEventListener('scroll', () => {
+      const offset = window.scrollY * 0.22;
+      bgImg.style.backgroundPositionY = 'calc(-12px + ' + offset + 'px)';
+    }, { passive: true });
+  }
+
+  /* 5. Subtle logo breathing glow */
+  const heroLogo = document.querySelector('.hero-logo');
+  if (heroLogo) {
+    heroLogo.style.animation = 'heroLogoBreathe 3.8s ease-in-out infinite';
+  }
+})();
