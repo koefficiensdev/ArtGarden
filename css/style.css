@@ -254,7 +254,7 @@ ul { list-style: none; }
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: saturate(1.5) contrast(0.95) brightness(1.25);
+  /* filter: saturate(1.5) contrast(0.95) brightness(1.25); */
 }
 .mobile-hero-bg-img::after {
   content: "";
