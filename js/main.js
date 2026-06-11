@@ -80,6 +80,39 @@ document.querySelectorAll('[data-icon]').forEach(el => {
     });
   }
 
+  // Close desktop dropdown on scroll or click outside
+  const navItem = document.getElementById('nav-services');
+  if (navItem) {
+    document.addEventListener('click', (e) => {
+      if (!navItem.contains(e.target)) {
+        navItem.classList.remove('open');
+      }
+    });
+    window.addEventListener('scroll', () => {
+      navItem.classList.remove('open');
+    }, { passive: true });
+  }
+
+  // Close mobile menu on click outside or scroll
+  function closeMobileMenu() {
+    if (!mobileOpen) return;
+    mobileOpen = false;
+    mobileNav.classList.remove('open');
+    header.classList.remove('menu-open');
+    if (mobileMenuIcon) mobileMenuIcon.innerHTML = ICONS.menu;
+    updateHeaderBg();
+  }
+
+  document.addEventListener('click', (e) => {
+    if (mobileOpen && !header.contains(e.target)) {
+      closeMobileMenu();
+    }
+  });
+
+  window.addEventListener('scroll', () => {
+    if (mobileOpen) closeMobileMenu();
+  }, { passive: true });
+
   // Mark active nav links
   const links = document.querySelectorAll('.nav-desktop a, .mobile-nav a');
   links.forEach(link => {
