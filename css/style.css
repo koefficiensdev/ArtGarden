@@ -256,6 +256,16 @@ ul { list-style: none; }
   background-repeat: no-repeat;
   /* filter: saturate(1.5) contrast(0.95) brightness(1.25); */
 }
+.mobile-hero-bg-img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle 1500px at -200px 40%, rgba(0,0,0,.90) 0%, rgba(0,0,0,.90) 20%, rgba(0,0,0,.2) 25%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to bottom, black 70%, transparent 85%);
+  mask-image: linear-gradient(to bottom, black 70%, transparent 85%);
+  z-index: 1;
+  pointer-events: none;
+}
 .mobile-hero-bg-img::after {
   content: "";
   position: absolute;
