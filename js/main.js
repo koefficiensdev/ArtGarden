@@ -63,7 +63,8 @@ document.querySelectorAll('[data-icon]').forEach(el => {
   updateHeaderBg();
 
   if (mobileBtn && mobileNav) {
-    mobileBtn.addEventListener('click', () => {
+    mobileBtn.addEventListener('click', (e) => {
+      e.stopPropagation();
       mobileOpen = !mobileOpen;
       mobileNav.classList.toggle('open', mobileOpen);
       header.classList.toggle('menu-open', mobileOpen);
