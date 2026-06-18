@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="hu">
 <head>
   <meta charset="UTF-8" />
@@ -6,7 +6,7 @@
   <title>ArtDesign | Prémium kertépítés és kertfenntartás</title>
   <meta name="description" content="Egyedi tervezés, prémium kivitelezés és gondos kertfenntartás – a tökéletes kerti élményért, egész évben." />
   <link rel="icon" href="favicon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=5" />
+  <link rel="stylesheet" href="css/style.css?v=6" />
 </head>
 <body>
 
@@ -16,9 +16,8 @@
 <header class="site-header transparent">
   <div class="header-inner">
     <!-- Logo -->
-    <a href="index.html" class="logo-wrap hero-logo" style="transform:translateY(80px);filter:drop-shadow(0 6px 24px rgba(0,0,0,.95)) drop-shadow(0 0 18px rgba(0,0,0,.75));" id="logo-link">
-      <img src="logos/logo-icon.png" alt="" class="logo-icon" style="height:60px;width:60px;object-fit:contain;" />
-      <img src="logos/logo-white.png" alt="ArtDesign logo" class="logo-text" style="height:35px;width:140px;object-fit:contain;object-position:left;align-self:flex-end;" />
+    <a href="index.html" class="logo-wrap hero-logo" id="logo-link">
+      <img src="logos/logo-final.png" alt="ArtGarden Design logo" class="logo-final-img" />
     </a>
 
     <!-- Desktop Nav -->
@@ -139,7 +138,59 @@
       </div>
     </div>
   </div>
+  
+
+
 </main>
+
+<!-- ============================================================
+     MOBILE SERVICE CTAS
+============================================================ -->
+<section class="home-mobile-cta-section" aria-label="Szolgáltatás ajánlatkérés">
+  <div class="home-mobile-cta-intro">
+    <p class="home-mobile-cta-overline">Válasszon irányt</p>
+    <h2>Kertje minden részlete nálunk kezdődik.</h2>
+  </div>
+
+  <div class="home-mobile-cta-stack">
+    <a href="kertepites.html" class="home-mobile-cta-card">
+      <img src="images/kertépítés_3.jpg" alt="Kerti ösvény éjszaka" />
+      <span class="home-mobile-cta-shade"></span>
+      <span class="home-mobile-cta-content">
+        <span class="home-mobile-cta-label">Kertépítés</span>
+        <span class="home-mobile-cta-title">Készítsük el együtt az Ön álomkertjét.</span>
+        <span class="home-mobile-cta-text">Kérjen személyre szabott ajánlatot még ma!</span>
+      </span>
+      <span class="home-mobile-cta-arrow" data-icon="arrowRight" style="display:inline-flex;width:18px;height:18px;"></span>
+    </a>
+
+    <a href="kertfenntartas.html" class="home-mobile-cta-card">
+      <img src="images/kertfenntartás_2.jpg" alt="Gondozott kert részlete" />
+      <span class="home-mobile-cta-shade"></span>
+      <span class="home-mobile-cta-content">
+        <span class="home-mobile-cta-label">Kertfenntartás</span>
+        <span class="home-mobile-cta-title">Élvezze kertje szépségét, mi gondoskodunk róla.</span>
+        <span class="home-mobile-cta-text">Bízza ránk kertje fenntartását, és élvezze a tökéletes harmóniát minden nap.</span>
+      </span>
+      <span class="home-mobile-cta-arrow" data-icon="arrowRight" style="display:inline-flex;width:18px;height:18px;"></span>
+    </a>
+
+    <a href="automata-ontozes.html" class="home-mobile-cta-card">
+      <img src="images/öntözés_4.jpg" alt="Automata öntözőrendszer működés közben" />
+      <span class="home-mobile-cta-shade"></span>
+      <span class="home-mobile-cta-content">
+        <span class="home-mobile-cta-label">Automata öntözés</span>
+        <span class="home-mobile-cta-title">Láthatatlan technológia. Látható eredmény.</span>
+        <span class="home-mobile-cta-text">Élvezze a gyönyörű, egészséges kertet minden nap - mi gondoskodunk róla.</span>
+      </span>
+      <span class="home-mobile-cta-arrow" data-icon="arrowRight" style="display:inline-flex;width:18px;height:18px;"></span>
+    </a>
+  </div>
+
+  <div class="home-mobile-cta-action">
+    <a href="kapcsolat.html" class="btn btn-gold-fill">KAPCSOLATFELVÉTEL <span data-icon="arrowRight" style="display:inline-flex;width:16px;height:16px;"></span></a>
+  </div>
+</section>
 
 <!-- ============================================================
      DESKTOP LAYOUT
@@ -261,7 +312,7 @@
     <div class="container footer-inner">
       <div class="footer-grid">
         <div>
-          <img src="logos/logo-white.png" alt="ArtDesign" class="footer-logo" />
+          <img src="logos/logo-final.png" alt="ArtGarden Design" class="footer-logo" />
           <p class="footer-tagline">Prémium kertépítés és kertfenntartás Budapest és környékén.</p>
         </div>
         <div>
@@ -288,7 +339,7 @@
 
 </div><!-- /desktop-main -->
 
-<script src="js/main.js?v=5"></script>
+<script src="js/main.js?v=6"></script>
 <script>
   // Show correct layout based on viewport
   function applyLayout() {
@@ -303,6 +354,8 @@
     } else {
       if (desktop) desktop.style.display = 'none';
       if (mobile) mobile.style.display = 'flex';
+      const logoLink = document.getElementById('logo-link');
+      if (logoLink) { logoLink.style.transform = ''; logoLink.style.alignSelf = ''; }
     }
   }
   applyLayout();

@@ -45,10 +45,12 @@ document.querySelectorAll('[data-icon]').forEach(el => {
     if (isHome && isMobile) {
       header.classList.remove('scrolled', 'bg-dark-80');
       header.classList.add('transparent');
+      header.classList.toggle('logo-compact', scrolled || mobileOpen);
       return;
     }
 
     header.classList.remove('scrolled', 'transparent', 'bg-dark-80');
+    header.classList.remove('logo-compact');
     if (mobileOpen) {
       header.classList.add('scrolled');
     } else if (scrolled && !(isHome && isMobile)) {
@@ -157,7 +159,6 @@ document.querySelectorAll('[data-icon]').forEach(el => {
     fade.style.background = `linear-gradient(to bottom, transparent ${fadeStart.toFixed(1)}%, var(--cream) ${fadeEnd.toFixed(1)}%)`;
   }
   requestAnimationFrame(update);
-  window.addEventListener('resize', update);
 })();
 
 /* ---- Contact form ---- */
@@ -284,18 +285,11 @@ if (yearEl) yearEl.textContent = new Date().getFullYear();
     });
   });
 
-  /* 4. Parallax on hero background while scrolling */
+  /* 4. Keep the mobile hero image anchored when the page scrolls below it. */
   const bgImg = document.querySelector('.mobile-hero-bg-img');
   if (bgImg) {
-    window.addEventListener('scroll', () => {
-      const offset = window.scrollY * 0.22;
-      bgImg.style.backgroundPositionY = 'calc(-12px + ' + offset + 'px)';
-    }, { passive: true });
+    bgImg.style.backgroundPositionY = 'center';
   }
 
-  /* 5. Subtle logo breathing glow */
-  const heroLogo = document.querySelector('.hero-logo');
-  if (heroLogo) {
-    heroLogo.style.animation = 'heroLogoBreathe 3.8s ease-in-out infinite';
-  }
+  /* 5. Header scroll state handles the home logo transition. */
 })();

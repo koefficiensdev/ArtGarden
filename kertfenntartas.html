@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="hu">
 <head>
   <meta charset="UTF-8" />
@@ -6,7 +6,7 @@
   <title>Kertfenntartás | ArtDesign</title>
   <meta name="description" content="Folyamatos gondozással őrizzük meg kertje harmóniáját minden évszakban." />
   <link rel="icon" href="favicon.svg" />
-  <link rel="stylesheet" href="css/style.css?v=2" />
+  <link rel="stylesheet" href="css/style.css?v=6" />
 </head>
 <body>
 
@@ -14,8 +14,7 @@
 <header class="site-header bg-dark-80 subpage-header">
   <div class="header-inner">
     <a href="index.html" class="logo-wrap" id="logo-link">
-      <img src="logos/logo-icon.png" alt="" class="logo-icon" style="height:36px;width:36px;object-fit:contain;" />
-      <img src="logos/logo-white.png" alt="ArtDesign logo" class="logo-text" style="height:32px;width:140px;object-fit:contain;object-position:left;" />
+      <img src="logos/logo-final.png" alt="ArtGarden Design logo" class="logo-final-img" />
     </a>
     <nav class="nav-desktop">
       <a href="index.html">FŐOLDAL</a>
@@ -80,7 +79,7 @@
           <p class="feature-desc">Megbízható, ütemezett kertgondozás az év minden időszakában.</p>
         </div>
         <div class="feature-item fade-in" data-delay="0.1">
-          <div class="feature-icon"><img src="icons/ikon-kertfenntartas.png" alt="" /></div>
+          <div class="feature-icon"><img src="icons/ikon-kertfenntartas-feature.png" alt="" /></div>
           <h3 class="feature-title">SÖVÉNY ÉS FAÁPOLÁS</h3>
           <p class="feature-desc">Szakértő metszés a növények egészségéért és esztétikus megjelenéséért.</p>
         </div>
@@ -207,7 +206,7 @@
   <div class="container footer-inner">
     <div class="footer-grid">
       <div>
-        <img src="logos/logo-white.png" alt="ArtDesign" class="footer-logo" />
+        <img src="logos/logo-final.png" alt="ArtGarden Design" class="footer-logo" />
         <p class="footer-tagline">Prémium kertépítés és kertfenntartás Budapest és környékén.</p>
       </div>
       <div>
@@ -236,8 +235,8 @@
 <script>
   const logoLink = document.getElementById('logo-link');
   function fixLogo() {
-    if (window.innerWidth >= 1024) { logoLink.style.transform = 'none'; logoLink.style.alignSelf = 'center'; }
-    else { logoLink.style.transform = 'translateY(40px)'; logoLink.style.alignSelf = 'flex-end'; }
+    logoLink.style.transform = 'none';
+    logoLink.style.alignSelf = 'center';
   }
   fixLogo(); window.addEventListener('resize', fixLogo);
 </script>
